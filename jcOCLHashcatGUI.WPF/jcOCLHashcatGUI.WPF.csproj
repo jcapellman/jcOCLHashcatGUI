@@ -61,6 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Enums\HashTypes.cs" />
+    <Compile Include="Helpers\EnumToKeyValuePair.cs" />
+    <Compile Include="Objects\KeyValuePair.cs" />
+    <Compile Include="ViewModels\MainModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enums" />
+    <Folder Include="Helpers" />
+    <Folder Include="Objects" />
+    <Folder Include="ViewModels" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
