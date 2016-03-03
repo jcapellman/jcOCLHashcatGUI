@@ -1,4 +1,8 @@
-﻿using jcOCLHashcatGUI.WPF.ViewModels;
+﻿using System.Windows;
+
+using jcOCLHashcatGUI.WPF.Enums;
+using jcOCLHashcatGUI.WPF.ViewModels;
+
 using MahApps.Metro.Controls;
 
 namespace jcOCLHashcatGUI.WPF {
@@ -10,7 +14,15 @@ namespace jcOCLHashcatGUI.WPF {
 
             DataContext = new MainModel();
 
-            viewModel.LoadData();
+            var result = viewModel.LoadData();
+
+            if (result == ErrorTypes.NONE) {
+                return;
+            }
+
+            MessageBox.Show(result.ToString());
         }
+
+        private async void ButtonBase_OnClick(object sender, RoutedEventArgs e) { var result = await viewModel.RunHashcat(); }
     }
 }

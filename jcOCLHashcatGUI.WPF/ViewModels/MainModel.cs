@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 using jcOCLHashcatGUI.WPF.Enums;
 using jcOCLHashcatGUI.WPF.Helpers;
 using jcOCLHashcatGUI.WPF.Objects;
 
 namespace jcOCLHashcatGUI.WPF.ViewModels {
-    public class MainModel : INotifyPropertyChanged {
+    public class MainModel : BaseModel {
         private List<KeyValuePair> _hashTypes;
 
         public List<KeyValuePair> SelectableHashTypes {
@@ -23,20 +24,55 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             set { _selectedHashType = value; OnPropertyChanged(); }
         }
 
-        public void LoadData() {
+        private bool _buttonRunHashcat;
+
+        public bool ButtonRunHashcat {
+            get {  return _buttonRunHashcat;}
+            set { _buttonRunHashcat = value; OnPropertyChanged(); }
+        }
+
+        private string _hashcatOutput;
+
+        public string HashcatOutput { get { return _hashcatOutput; } set { _hashcatOutput = value; OnPropertyChanged(); } }
+
+        public ErrorTypes LoadData() {
+            ButtonRunHashcat = false;
+
             SelectableHashTypes = EnumToKeyValuePair.ToKeyValuePair<HashTypes>();
 
             if (SelectableHashTypes != null) {
                 SelectedHashType = SelectableHashTypes.FirstOrDefault();
             }
+
+            if (!File.Exists(Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION))) {
+                return ErrorTypes.OCLHASHCAT_NOT_FOUND_AT_PATH;
+            }
+
+            ButtonRunHashcat = true;
+
+            return ErrorTypes.NONE;
         }
 
-        #region PropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
+        public async Task<ErrorTypes> RunHashcat() {
+            ButtonRunHashcat = false;
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
-          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var procInfo = new ProcessStartInfo(Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION)) {
+                RedirectStandardOutput = true,
+                CreateNoWindow = true,
+                UseShellExecute = false
+            };
+
+            var proc = new Process {
+                StartInfo = procInfo
+            };
+
+            proc.Start();
+
+            HashcatOutput = await proc.StandardOutput.ReadToEndAsync();
+
+            ButtonRunHashcat = true;
+
+            return ErrorTypes.NONE;
         }
-        #endregion
-  }
+    }
 }

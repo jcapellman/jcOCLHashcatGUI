@@ -57,7 +57,7 @@
 
             <TextBlock Grid.Row="0" Text="Hashcat Output" />
 
-            <TextBox Grid.Row="1" IsEnabled="False" />
+            <TextBox Grid.Row="1" Text="{Binding HashcatOutput, Mode=TwoWay}" IsEnabled="False" />
         </Grid>
 
         <Grid Grid.Row="3" Margin="10,10,10,10">
@@ -65,7 +65,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Content="run hashcat" />
+            <Button Grid.Row="0" IsEnabled="{Binding ButtonRunHashcat, Mode=TwoWay}" Click="ButtonBase_OnClick" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Content="run hashcat" />
         </Grid>
     </Grid>
 </Controls:MetroWindow>
