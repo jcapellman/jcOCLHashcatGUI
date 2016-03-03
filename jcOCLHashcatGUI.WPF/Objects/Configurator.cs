@@ -10,10 +10,13 @@ namespace jcOCLHashcatGUI.WPF.Objects {
         private readonly Dictionary<ConfigOptions, object> _options;
 
         private const string DEFAULT_SETTINGS_FILE = "settings.json";
+
         private const string DEFAULT_OCLHASHCAT_LOCATION = "oclhashcat64.exe";
+        private const string DEFAULT_LANGUAGE = "en-US";
 
         private void LoadDefaults() {
             _options.Add(ConfigOptions.OCLHASHCAT_LOCATION, DEFAULT_OCLHASHCAT_LOCATION);
+            _options.Add(ConfigOptions.LANGUAGE, DEFAULT_LANGUAGE);
         }
 
         private void writeSettings() => File.WriteAllText(DEFAULT_SETTINGS_FILE, JsonConvert.SerializeObject(_options));
@@ -41,7 +44,13 @@ namespace jcOCLHashcatGUI.WPF.Objects {
 
             switch (configOption) {
                 case ConfigOptions.OCLHASHCAT_LOCATION:
+                    UpdateConfigValue(configOption, DEFAULT_OCLHASHCAT_LOCATION);
+
                     return (T)Convert.ChangeType(DEFAULT_OCLHASHCAT_LOCATION, typeof(T));
+                case ConfigOptions.LANGUAGE:
+                    UpdateConfigValue(configOption, DEFAULT_LANGUAGE);
+
+                    return (T) Convert.ChangeType(DEFAULT_LANGUAGE, typeof(T));
             }
 
             return default(T);

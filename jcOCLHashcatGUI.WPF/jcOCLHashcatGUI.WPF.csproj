@@ -68,6 +68,7 @@
     <Compile Include="Enums\ConfigOptions.cs" />
     <Compile Include="Enums\ErrorTypes.cs" />
     <Compile Include="Enums\HashTypes.cs" />
+    <Compile Include="Enums\SupportedLanguages.cs" />
     <Compile Include="Helpers\EnumToKeyValuePair.cs" />
     <Compile Include="Objects\Configurator.cs" />
     <Compile Include="Objects\KeyValuePair.cs" />
@@ -105,6 +106,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.es-ES.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
