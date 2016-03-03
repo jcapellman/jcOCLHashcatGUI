@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace jcOCLHashcatGUI.WPF.Properties
-{
-
-
+namespace jcOCLHashcatGUI.WPF.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,140 @@ namespace jcOCLHashcatGUI.WPF.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    public class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("jcOCLHashcatGUI.WPF.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The path to oclHashcat was not found, please set the correct path..
+        /// </summary>
+        public static string ERROR_OCLHASHCAT_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("ERROR_OCLHASHCAT_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to browse.
+        /// </summary>
+        public static string MAINWINDOW_BUTTON_BROWSE_FOR_HASH_FILE {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_BUTTON_BROWSE_FOR_HASH_FILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to run hashcat.
+        /// </summary>
+        public static string MAINWINDOW_BUTTON_RUN_HASHCAT {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_BUTTON_RUN_HASHCAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to save.
+        /// </summary>
+        public static string MAINWINDOW_SETTINGS_BUTTON_SAVE {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_SETTINGS_BUTTON_SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to browse.
+        /// </summary>
+        public static string MAINWINDOW_SETTINGS_FLYOUT_BROWSE_FOR_HASHCAT {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_SETTINGS_FLYOUT_BROWSE_FOR_HASHCAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to oclHashcat location.
+        /// </summary>
+        public static string MAINWINDOW_SETTINGS_FLYOUT_HASHCAT_LOCATION {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_SETTINGS_FLYOUT_HASHCAT_LOCATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to language.
+        /// </summary>
+        public static string MAINWINDOW_SETTINGS_TEXTBLOCK_LANGUAGE {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_SETTINGS_TEXTBLOCK_LANGUAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hash Source File.
+        /// </summary>
+        public static string MAINWINDOW_TEXTBLOCK_HASH_SOURCE_FILE_LABEL {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_TEXTBLOCK_HASH_SOURCE_FILE_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hash Source Type.
+        /// </summary>
+        public static string MAINWINDOW_TEXTBLOCK_HASH_SOURCE_TYPE_LABEL {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_TEXTBLOCK_HASH_SOURCE_TYPE_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hashcat Output.
+        /// </summary>
+        public static string MAINWINDOW_TEXTBLOCK_OUTPUT_LABEL {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_TEXTBLOCK_OUTPUT_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to settings.
+        /// </summary>
+        public static string MAINWINDOW_TITLEBAR_SETTINGS {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_TITLEBAR_SETTINGS", resourceCulture);
             }
         }
     }

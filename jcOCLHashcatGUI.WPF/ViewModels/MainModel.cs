@@ -35,7 +35,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
         public string HashcatOutput { get { return _hashcatOutput; } set { _hashcatOutput = value; OnPropertyChanged(); } }
 
-        public ErrorTypes LoadData() {
+        public OperationResult LoadData() {
             ButtonRunHashcat = false;
 
             SelectableHashTypes = EnumToKeyValuePair.ToKeyValuePair<HashTypes>();
@@ -45,15 +45,15 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             }
 
             if (!File.Exists(Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION))) {
-                return ErrorTypes.OCLHASHCAT_NOT_FOUND_AT_PATH;
+                return new OperationResult(ErrorTypes.OCLHASHCAT_NOT_FOUND_AT_PATH);
             }
 
             ButtonRunHashcat = true;
 
-            return ErrorTypes.NONE;
+            return new OperationResult(ErrorTypes.NONE);
         }
 
-        public async Task<ErrorTypes> RunHashcat() {
+        public async Task<OperationResult> RunHashcat() {
             ButtonRunHashcat = false;
 
             var procInfo = new ProcessStartInfo(Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION)) {
@@ -72,7 +72,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             ButtonRunHashcat = true;
 
-            return ErrorTypes.NONE;
+            return new OperationResult(ErrorTypes.NONE);
         }
     }
 }

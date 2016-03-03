@@ -16,13 +16,17 @@ namespace jcOCLHashcatGUI.WPF {
 
             var result = viewModel.LoadData();
 
-            if (result == ErrorTypes.NONE) {
+            if (result.ErrorType == ErrorTypes.NONE) {
                 return;
             }
 
-            MessageBox.Show(result.ToString());
+            MessageBox.Show(result.LocalizedErrorString);
         }
 
         private async void ButtonBase_OnClick(object sender, RoutedEventArgs e) { var result = await viewModel.RunHashcat(); }
+
+        private void btnSettings_OnClick(object sender, RoutedEventArgs e) { fSettings.IsOpen = true; }
+
+        private void btnClosePopup_OnClick(object sender, RoutedEventArgs e) { fSettings.IsOpen = false; }
     }
 }

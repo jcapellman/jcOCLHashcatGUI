@@ -71,6 +71,7 @@
     <Compile Include="Helpers\EnumToKeyValuePair.cs" />
     <Compile Include="Objects\Configurator.cs" />
     <Compile Include="Objects\KeyValuePair.cs" />
+    <Compile Include="Objects\OperationResult.cs" />
     <Compile Include="ViewModels\BaseModel.cs" />
     <Compile Include="ViewModels\MainModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -101,7 +102,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
