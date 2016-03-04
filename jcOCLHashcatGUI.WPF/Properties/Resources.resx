@@ -135,6 +135,9 @@
   <data name="MAINWINDOW_SETTINGS_FLYOUT_HASHCAT_LOCATION" xml:space="preserve">
     <value>oclHashcat location</value>
   </data>
+  <data name="MAINWINDOW_SETTINGS_LANGUAGE_CHANGE" xml:space="preserve">
+    <value>Language settings change on next application start.</value>
+  </data>
   <data name="MAINWINDOW_SETTINGS_TEXTBLOCK_LANGUAGE" xml:space="preserve">
     <value>language</value>
   </data>

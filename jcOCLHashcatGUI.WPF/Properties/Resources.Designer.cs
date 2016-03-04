@@ -115,6 +115,15 @@ namespace jcOCLHashcatGUI.WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Language settings change on next application start..
+        /// </summary>
+        public static string MAINWINDOW_SETTINGS_LANGUAGE_CHANGE {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_SETTINGS_LANGUAGE_CHANGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to language.
         /// </summary>
         public static string MAINWINDOW_SETTINGS_TEXTBLOCK_LANGUAGE {

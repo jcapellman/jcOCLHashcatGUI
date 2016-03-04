@@ -27,6 +27,10 @@ namespace jcOCLHashcatGUI.WPF {
 
         private void btnSettings_OnClick(object sender, RoutedEventArgs e) { fSettings.IsOpen = true; }
 
-        private void btnClosePopup_OnClick(object sender, RoutedEventArgs e) { fSettings.IsOpen = false; }
+        private void btnClosePopup_OnClick(object sender, RoutedEventArgs e) {
+            viewModel.SaveSettings();
+
+            fSettings.IsOpen = false;
+        }
     }
 }

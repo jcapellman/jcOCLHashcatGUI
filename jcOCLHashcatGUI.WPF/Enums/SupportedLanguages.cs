@@ -1,6 +1,6 @@
 ﻿namespace jcOCLHashcatGUI.WPF.Enums {
     public enum SupportedLanguages {
-        enUS,
-        esES
+        en_US,
+        es_ES
     }
 }
