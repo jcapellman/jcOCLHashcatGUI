@@ -67,6 +67,8 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             SelectedLanguage = SelectableLanguages.FirstOrDefault(a => a.Key == Config.GetConfigValue<string>(ConfigOptions.LANGUAGE));
 
+            SelectedHashcatLocation = Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION);
+                
             if (!File.Exists(Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION))) {
                 return new OperationResult(ErrorTypes.OCLHASHCAT_NOT_FOUND_AT_PATH);
             }
