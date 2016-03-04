@@ -10,7 +10,14 @@ namespace jcOCLHashcatGUI.WPF.Objects {
         public OperationResult(ErrorTypes argErrorType) {
             ErrorType = argErrorType;
 
-            LocalizedErrorString = Resources.ERROR_OCLHASHCAT_NOT_FOUND;
+            switch (ErrorType) {
+                case ErrorTypes.OCLHASHCAT_NOT_FOUND_AT_PATH:
+                    LocalizedErrorString = Resources.ERROR_OCLHASHCAT_NOT_FOUND;
+                    break;
+                case ErrorTypes.LANGUAGE_CHANGED:
+                    LocalizedErrorString = Resources.MAINWINDOW_SETTINGS_LANGUAGE_CHANGE;
+                    break;
+            }
         }        
     }
 }

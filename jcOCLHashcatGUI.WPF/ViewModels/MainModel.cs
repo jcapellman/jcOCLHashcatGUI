@@ -76,18 +76,19 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             return new OperationResult(ErrorTypes.NONE);
         }
 
-        public OperationResult SaveSettings()
-        {
+        public OperationResult SaveSettings() {
+            var result = new OperationResult(ErrorTypes.NONE);
 
             var currentLanguage = Config.GetConfigValue<string>(ConfigOptions.LANGUAGE);
 
             if (currentLanguage != SelectedLanguage.Key) {
-                
+                result = new OperationResult(ErrorTypes.LANGUAGE_CHANGED);    
             }
+
             Config.UpdateConfigValue(ConfigOptions.LANGUAGE, SelectedLanguage.Key);
             Config.UpdateConfigValue(ConfigOptions.OCLHASHCAT_LOCATION, SelectedHashcatLocation);
 
-            return new OperationResult(ErrorTypes.NONE);
+            return result;
         }
 
         public async Task<OperationResult> RunHashcat() {
