@@ -33,6 +33,8 @@ namespace jcOCLHashcatGUI.WPF {
 
             if (result.ErrorType != ErrorTypes.NONE) {
                 MessageBox.Show(result.LocalizedErrorString);
+
+                return;
             }
 
             fSettings.IsOpen = false;

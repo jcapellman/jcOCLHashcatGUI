@@ -23,8 +23,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             get {  return _selectableLanguages; }
             set { _selectableLanguages = value; OnPropertyChanged(); }
         }
-
-
+        
         private KeyValuePair _selectedLanguage;
 
         public KeyValuePair SelectedLanguage {
@@ -65,7 +64,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             SelectableLanguages = EnumToKeyValuePair.ToKeyValuePair<SupportedLanguages>(replaceUnderscoreCharacter: "-");
 
-            SelectedLanguage = SelectableLanguages.FirstOrDefault(a => a.Key == Config.GetConfigValue<string>(ConfigOptions.LANGUAGE));
+            SelectedLanguage = SelectableLanguages.FirstOrDefault(a => a.Key == Config.GetConfigValue<string>(ConfigOptions.LANGUAGE)) ?? SelectableLanguages.FirstOrDefault();
 
             SelectedHashcatLocation = Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION);
                 
@@ -85,6 +84,10 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             if (currentLanguage != SelectedLanguage.Key) {
                 result = new OperationResult(ErrorTypes.LANGUAGE_CHANGED);    
+            }
+
+            if (!File.Exists(SelectedHashcatLocation)) {
+                return new OperationResult(ErrorTypes.OCLHASHCAT_NOT_FOUND_AT_PATH);
             }
 
             Config.UpdateConfigValue(ConfigOptions.LANGUAGE, SelectedLanguage.Key);
