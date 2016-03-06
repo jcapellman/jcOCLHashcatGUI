@@ -12,6 +12,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="10,10,10,10">
@@ -49,6 +50,23 @@
             </ComboBox>
         </Grid>
 
-        <Button Grid.Row="2" Margin="10,0,10,10" Content="{x:Static properties:Resources.MAINWINDOW_SETTINGS_BUTTON_SAVE}" Click="btnClosePopup_OnClick" />
+        <Grid Grid.Row="2" Margin="10,10,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{x:Static properties:Resources.MAINWINDOW_SETTINGS_DICTIONARIES_LABEL}" />
+
+            <ListBox Grid.Row="1" ItemsSource="{Binding Dictionaries, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        
+        <Button Grid.Row="3" Margin="10,0,10,10" Content="{x:Static properties:Resources.MAINWINDOW_SETTINGS_BUTTON_SAVE}" Click="btnClosePopup_OnClick" />
     </Grid>
 </UserControl>

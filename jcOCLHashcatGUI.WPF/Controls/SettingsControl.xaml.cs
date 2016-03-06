@@ -4,6 +4,7 @@ using System.Windows.Controls;
 
 using jcOCLHashcatGUI.WPF.Enums;
 using jcOCLHashcatGUI.WPF.ViewModels;
+
 using Microsoft.Win32;
 
 namespace jcOCLHashcatGUI.WPF.Controls {

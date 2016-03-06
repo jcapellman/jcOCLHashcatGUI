@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
 using jcOCLHashcatGUI.WPF.Enums;
+
 using Newtonsoft.Json;
 
 namespace jcOCLHashcatGUI.WPF.Objects {
@@ -17,6 +19,7 @@ namespace jcOCLHashcatGUI.WPF.Objects {
         private void LoadDefaults() {
             _options.Add(ConfigOptions.OCLHASHCAT_LOCATION, DEFAULT_OCLHASHCAT_LOCATION);
             _options.Add(ConfigOptions.LANGUAGE, DEFAULT_LANGUAGE);
+            _options.Add(ConfigOptions.DICTIONARIES, string.Empty);
         }
 
         private void writeSettings() => File.WriteAllText(DEFAULT_SETTINGS_FILE, JsonConvert.SerializeObject(_options));
@@ -39,6 +42,12 @@ namespace jcOCLHashcatGUI.WPF.Objects {
 
         public T GetConfigValue<T>(ConfigOptions configOption) {
             if (_options.ContainsKey(configOption)) {
+                var result = _options[configOption];
+
+                if (typeof(T) is ICollection<T> && result.ToString() == string.Empty) {
+                    return (T) Convert.ChangeType(new List<T>(), typeof (T));
+                }
+
                 return (T) _options[configOption];
             }
 
@@ -51,7 +60,11 @@ namespace jcOCLHashcatGUI.WPF.Objects {
                     UpdateConfigValue(configOption, DEFAULT_LANGUAGE);
 
                     return (T) Convert.ChangeType(DEFAULT_LANGUAGE, typeof(T));
-            }
+                case ConfigOptions.DICTIONARIES:
+                    UpdateConfigValue(configOption, string.Empty);
+
+                    return (T) Convert.ChangeType(new List<DictionaryItem>(), typeof (T));
+;            }
 
             return default(T);
         }

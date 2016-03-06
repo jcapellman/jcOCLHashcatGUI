@@ -26,12 +26,21 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             set { _selectableLanguages = value; OnPropertyChanged(); }
         }
 
+        private List<DictionaryItem> _dictionaries;
+
+        public List<DictionaryItem> Dictionaries {
+            get {  return _dictionaries; }
+            set { _dictionaries = value; OnPropertyChanged(); }
+        }  
+
         public OperationResult LoadData() {
             SelectableLanguages = EnumToKeyValuePair.ToKeyValuePair<SupportedLanguages>(replaceUnderscoreCharacter: "-");
 
             SelectedLanguage = SelectableLanguages.FirstOrDefault(a => a.Key == Config.GetConfigValue<string>(ConfigOptions.LANGUAGE)) ?? SelectableLanguages.FirstOrDefault();
 
             SelectedHashcatLocation = Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION);
+
+            Dictionaries = Config.GetConfigValue<List<DictionaryItem>>(ConfigOptions.DICTIONARIES);
 
             return new OperationResult(ErrorTypes.NONE);
         }

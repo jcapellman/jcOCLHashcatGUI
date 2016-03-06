@@ -97,6 +97,15 @@ namespace jcOCLHashcatGUI.WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to dictionaries.
+        /// </summary>
+        public static string MAINWINDOW_SETTINGS_DICTIONARIES_LABEL {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_SETTINGS_DICTIONARIES_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to browse.
         /// </summary>
         public static string MAINWINDOW_SETTINGS_FLYOUT_BROWSE_FOR_HASHCAT {

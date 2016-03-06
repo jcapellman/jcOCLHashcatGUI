@@ -129,6 +129,9 @@
   <data name="MAINWINDOW_SETTINGS_BUTTON_SAVE" xml:space="preserve">
     <value>save</value>
   </data>
+  <data name="MAINWINDOW_SETTINGS_DICTIONARIES_LABEL" xml:space="preserve">
+    <value>dictionaries</value>
+  </data>
   <data name="MAINWINDOW_SETTINGS_FLYOUT_BROWSE_FOR_HASHCAT" xml:space="preserve">
     <value>browse</value>
   </data>
