@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
 using jcOCLHashcatGUI.WPF.Enums;
+using jcOCLHashcatGUI.WPF.Objects;
 using jcOCLHashcatGUI.WPF.ViewModels;
 
 using Microsoft.Win32;
@@ -47,6 +49,22 @@ namespace jcOCLHashcatGUI.WPF.Controls {
             }
 
             ReadyForClose(this, null);
+        }
+
+        private void btnBrowseForDictionaries(object sender, RoutedEventArgs e) {
+            var fileDialog = new OpenFileDialog {
+                Multiselect = true
+            };
+
+            var result = fileDialog.ShowDialog();
+
+            if (result == false) {
+                return;
+            }
+            
+            viewModel.Dictionaries.AddRange(fileDialog.FileNames.Select(a => new DictionaryItem {FilePath = a, IsChecked = true}).ToList());
+
+            viewModel.Dictionaries = viewModel.Dictionaries;
         }
     }
 }

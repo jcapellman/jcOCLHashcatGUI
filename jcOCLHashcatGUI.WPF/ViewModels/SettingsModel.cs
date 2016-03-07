@@ -60,6 +60,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             Config.UpdateConfigValue(ConfigOptions.LANGUAGE, SelectedLanguage.Key);
             Config.UpdateConfigValue(ConfigOptions.OCLHASHCAT_LOCATION, SelectedHashcatLocation);
+            Config.UpdateConfigValue(ConfigOptions.DICTIONARIES, Dictionaries);
 
             return result;
         }

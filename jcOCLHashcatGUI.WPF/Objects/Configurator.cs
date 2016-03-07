@@ -44,11 +44,9 @@ namespace jcOCLHashcatGUI.WPF.Objects {
             if (_options.ContainsKey(configOption)) {
                 var result = _options[configOption];
 
-                if (typeof(T) is ICollection<T> && result.ToString() == string.Empty) {
-                    return (T) Convert.ChangeType(new List<T>(), typeof (T));
+                if (!typeof(T).UnderlyingSystemType.Name.Contains("List") || (typeof(T).UnderlyingSystemType.Name.Contains("List") && result.ToString() != string.Empty)) {
+                    return (T)_options[configOption];
                 }
-
-                return (T) _options[configOption];
             }
 
             switch (configOption) {
