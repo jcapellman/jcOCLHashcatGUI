@@ -19,7 +19,7 @@ namespace jcOCLHashcatGUI.WPF.Objects {
         private void LoadDefaults() {
             _options.Add(ConfigOptions.OCLHASHCAT_LOCATION, DEFAULT_OCLHASHCAT_LOCATION);
             _options.Add(ConfigOptions.LANGUAGE, DEFAULT_LANGUAGE);
-            _options.Add(ConfigOptions.DICTIONARIES, string.Empty);
+            _options.Add(ConfigOptions.DICTIONARIES, new DictionaryContainerItem());
         }
 
         private void writeSettings() => File.WriteAllText(DEFAULT_SETTINGS_FILE, JsonConvert.SerializeObject(_options));
@@ -59,9 +59,9 @@ namespace jcOCLHashcatGUI.WPF.Objects {
 
                     return (T) Convert.ChangeType(DEFAULT_LANGUAGE, typeof(T));
                 case ConfigOptions.DICTIONARIES:
-                    UpdateConfigValue(configOption, string.Empty);
+                    UpdateConfigValue(configOption, new DictionaryContainerItem());
 
-                    return (T) Convert.ChangeType(new List<DictionaryItem>(), typeof (T));
+                    return (T) Convert.ChangeType(new DictionaryContainerItem(), typeof (T));
 ;            }
 
             return default(T);

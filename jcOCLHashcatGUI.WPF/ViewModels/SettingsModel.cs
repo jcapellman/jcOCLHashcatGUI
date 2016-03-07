@@ -40,7 +40,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             SelectedHashcatLocation = Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION);
 
-            Dictionaries = Config.GetConfigValue<List<DictionaryItem>>(ConfigOptions.DICTIONARIES);
+            Dictionaries = Config.GetConfigValue<DictionaryContainerItem>(ConfigOptions.DICTIONARIES).Dictionaries;
 
             return new OperationResult(ErrorTypes.NONE);
         }
@@ -60,7 +60,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             Config.UpdateConfigValue(ConfigOptions.LANGUAGE, SelectedLanguage.Key);
             Config.UpdateConfigValue(ConfigOptions.OCLHASHCAT_LOCATION, SelectedHashcatLocation);
-            Config.UpdateConfigValue(ConfigOptions.DICTIONARIES, Dictionaries);
+            Config.UpdateConfigValue(ConfigOptions.DICTIONARIES, new DictionaryContainerItem { Dictionaries = Dictionaries});
 
             return result;
         }
