@@ -42,11 +42,11 @@ namespace jcOCLHashcatGUI.WPF.Objects {
 
         public T GetConfigValue<T>(ConfigOptions configOption) {
             if (_options.ContainsKey(configOption)) {
-                var result = _options[configOption];
-
-                if (!typeof(T).UnderlyingSystemType.Name.Contains("List") || (typeof(T).UnderlyingSystemType.Name.Contains("List") && result.ToString() != string.Empty)) {
-                    return (T)_options[configOption];
+                if (!(typeof (T).IsValueType || typeof (T).FullName == "System.String")) {
+                    return (T)JsonConvert.DeserializeObject<T>(_options[configOption].ToString());
                 }
+
+                return (T) Convert.ChangeType(_options[configOption], typeof (T));
             }
 
             switch (configOption) {
