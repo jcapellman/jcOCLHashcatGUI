@@ -74,6 +74,7 @@
     <Compile Include="Enums\HashTypes.cs" />
     <Compile Include="Enums\SupportedLanguages.cs" />
     <Compile Include="Helpers\EnumToKeyValuePair.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Objects\Configurator.cs" />
     <Compile Include="Objects\DictionaryContainerItem.cs" />
     <Compile Include="Objects\DictionaryItem.cs" />

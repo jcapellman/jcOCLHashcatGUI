@@ -59,7 +59,7 @@
 
             <TextBlock Grid.Row="0" Text="{x:Static properties:Resources.MAINWINDOW_SETTINGS_DICTIONARIES_LABEL}" />
 
-            <Button Grid.Row="1" Content="{x:Static properties:Resources.MAINWINDOW_SETTINGS_DICTIONARIES_BUTTON}" HorizontalAlignment="Right" Click="btnBrowseForDictionaries" />
+            <Button Grid.Row="1" Margin="0,5,0,10"  Content="{x:Static properties:Resources.MAINWINDOW_SETTINGS_DICTIONARIES_BUTTON}" HorizontalAlignment="Right" Click="btnBrowseForDictionaries" />
             
             <ListBox Grid.Row="2" ItemsSource="{Binding Dictionaries, Mode=TwoWay}">
                 <ListBox.ItemContainerStyle>

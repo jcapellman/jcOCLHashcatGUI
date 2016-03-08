@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 
 using jcOCLHashcatGUI.WPF.Enums;
+using jcOCLHashcatGUI.WPF.Helpers;
 using jcOCLHashcatGUI.WPF.Objects;
 using jcOCLHashcatGUI.WPF.ViewModels;
 
@@ -63,8 +64,6 @@ namespace jcOCLHashcatGUI.WPF.Controls {
             }
             
             viewModel.Dictionaries.AddRange(fileDialog.FileNames.Select(a => new DictionaryItem {FilePath = a, IsChecked = true}).ToList());
-
-            viewModel.Dictionaries = viewModel.Dictionaries;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 
@@ -26,9 +27,9 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             set { _selectableLanguages = value; OnPropertyChanged(); }
         }
 
-        private List<DictionaryItem> _dictionaries;
+        private ObservableCollection<DictionaryItem> _dictionaries;
 
-        public List<DictionaryItem> Dictionaries {
+        public ObservableCollection<DictionaryItem> Dictionaries {
             get {  return _dictionaries; }
             set { _dictionaries = value; OnPropertyChanged(); }
         }  
@@ -40,7 +41,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             SelectedHashcatLocation = Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION);
 
-            Dictionaries = Config.GetConfigValue<DictionaryContainerItem>(ConfigOptions.DICTIONARIES).Dictionaries;
+            Dictionaries = new ObservableCollection<DictionaryItem>(Config.GetConfigValue<DictionaryContainerItem>(ConfigOptions.DICTIONARIES).Dictionaries);
 
             return new OperationResult(ErrorTypes.NONE);
         }
@@ -60,7 +61,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             Config.UpdateConfigValue(ConfigOptions.LANGUAGE, SelectedLanguage.Key);
             Config.UpdateConfigValue(ConfigOptions.OCLHASHCAT_LOCATION, SelectedHashcatLocation);
-            Config.UpdateConfigValue(ConfigOptions.DICTIONARIES, new DictionaryContainerItem { Dictionaries = Dictionaries});
+            Config.UpdateConfigValue(ConfigOptions.DICTIONARIES, new DictionaryContainerItem { Dictionaries = new List<DictionaryItem>(Dictionaries)});
 
             return result;
         }
