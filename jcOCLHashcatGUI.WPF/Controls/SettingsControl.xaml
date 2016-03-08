@@ -60,17 +60,11 @@
             <TextBlock Grid.Row="0" Text="{x:Static properties:Resources.MAINWINDOW_SETTINGS_DICTIONARIES_LABEL}" />
 
             <Button Grid.Row="1" Margin="0,5,0,10"  Content="{x:Static properties:Resources.MAINWINDOW_SETTINGS_DICTIONARIES_BUTTON}" HorizontalAlignment="Right" Click="btnBrowseForDictionaries" />
-            
+
             <ListBox Grid.Row="2" ItemsSource="{Binding Dictionaries, Mode=TwoWay}">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="IsSelected" Value="{Binding IsChecked}"/>
-                    </Style>
-                </ListBox.ItemContainerStyle>
-                
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding FilePath}" />
+                        <CheckBox Content="{Binding FilePath}" IsChecked="{Binding IsChecked, Mode=TwoWay}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
