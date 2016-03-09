@@ -17,6 +17,9 @@ namespace jcOCLHashcatGUI.WPF.Objects {
                 case ErrorTypes.LANGUAGE_CHANGED:
                     LocalizedErrorString = Resources.MAINWINDOW_SETTINGS_LANGUAGE_CHANGE;
                     break;
+                case ErrorTypes.DUPLICATE_DICTIONARIES:
+                    LocalizedErrorString = Resources.ERROR_SETTINGS_DUPLICATE_DICTIONARY;
+                    break;
             }
         }        
     }

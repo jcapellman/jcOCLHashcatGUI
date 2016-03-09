@@ -2,6 +2,7 @@
     public enum ErrorTypes {
         OCLHASHCAT_NOT_FOUND_AT_PATH,
         NONE,
-        LANGUAGE_CHANGED
+        LANGUAGE_CHANGED,
+        DUPLICATE_DICTIONARIES
     }
 }

@@ -62,8 +62,12 @@ namespace jcOCLHashcatGUI.WPF.Controls {
             if (result == false) {
                 return;
             }
-            
-            viewModel.Dictionaries.AddRange(fileDialog.FileNames.Select(a => new DictionaryItem {FilePath = a, IsChecked = true}).ToList());
+
+            var addResult = viewModel.AddDictionaries(fileDialog.FileNames);
+
+            if (addResult.ErrorType != ErrorTypes.NONE) {
+                MessageBox.Show(addResult.LocalizedErrorString);
+            }
         }
     }
 }

@@ -120,6 +120,9 @@
   <data name="ERROR_OCLHASHCAT_NOT_FOUND" xml:space="preserve">
     <value>The path to oclHashcat was not found, please set the correct path.</value>
   </data>
+  <data name="ERROR_SETTINGS_DUPLICATE_DICTIONARY" xml:space="preserve">
+    <value>At least one duplicate entry was attempted, only unique entries were added.</value>
+  </data>
   <data name="MAINWINDOW_BUTTON_BROWSE_FOR_HASH_FILE" xml:space="preserve">
     <value>browse</value>
   </data>

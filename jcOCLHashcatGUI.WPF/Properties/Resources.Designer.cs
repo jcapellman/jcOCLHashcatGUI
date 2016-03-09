@@ -70,6 +70,15 @@ namespace jcOCLHashcatGUI.WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to At least one duplicate entry was attempted, only unique entries were added..
+        /// </summary>
+        public static string ERROR_SETTINGS_DUPLICATE_DICTIONARY {
+            get {
+                return ResourceManager.GetString("ERROR_SETTINGS_DUPLICATE_DICTIONARY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to browse.
         /// </summary>
         public static string MAINWINDOW_BUTTON_BROWSE_FOR_HASH_FILE {

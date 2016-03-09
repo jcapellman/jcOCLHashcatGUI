@@ -65,5 +65,27 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             return result;
         }
+
+        public OperationResult AddDictionaries(string[] fileNames) {
+            var duplicatesAttempted = false;
+
+            foreach (var item in fileNames) {
+                if (Dictionaries.Any(a => a.FilePath == item)) {
+                    duplicatesAttempted = true;
+                    continue;
+                }
+
+                Dictionaries.Add(new DictionaryItem {
+                    FilePath = item,
+                    IsChecked = true
+                });
+            }
+
+            if (duplicatesAttempted) {
+                return new OperationResult(ErrorTypes.DUPLICATE_DICTIONARIES);
+            }
+
+            return new OperationResult(ErrorTypes.NONE);
+        }
     }
 }
