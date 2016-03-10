@@ -162,4 +162,7 @@
   <data name="MAINWINDOW_TITLEBAR_SETTINGS" xml:space="preserve">
     <value>settings</value>
   </data>
+  <data name="SETTINGS_DICTIONARY_CONTEXT_HELP" xml:space="preserve">
+    <value>Unchecking a dictionary will remove it from the list upon saving.</value>
+  </data>
 </root>

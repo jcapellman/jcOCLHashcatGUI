@@ -59,8 +59,16 @@
 
             <TextBlock Grid.Row="0" Text="{x:Static properties:Resources.MAINWINDOW_SETTINGS_DICTIONARIES_LABEL}" />
 
-            <Button Grid.Row="1" Margin="0,5,0,10"  Content="{x:Static properties:Resources.MAINWINDOW_SETTINGS_DICTIONARIES_BUTTON}" HorizontalAlignment="Right" Click="btnBrowseForDictionaries" />
-
+            <Grid Grid.Row="1" Margin="0,5,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{x:Static properties:Resources.SETTINGS_DICTIONARY_CONTEXT_HELP}" />
+                <Button Grid.Column="1" Content="{x:Static properties:Resources.MAINWINDOW_SETTINGS_DICTIONARIES_BUTTON}" HorizontalAlignment="Right" Click="btnBrowseForDictionaries" />
+            </Grid>
+         
             <ListBox Grid.Row="2" ItemsSource="{Binding Dictionaries, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

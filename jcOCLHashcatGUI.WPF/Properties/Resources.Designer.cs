@@ -194,5 +194,14 @@ namespace jcOCLHashcatGUI.WPF.Properties {
                 return ResourceManager.GetString("MAINWINDOW_TITLEBAR_SETTINGS", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unchecking a dictionary will remove it from the list upon saving..
+        /// </summary>
+        public static string SETTINGS_DICTIONARY_CONTEXT_HELP {
+            get {
+                return ResourceManager.GetString("SETTINGS_DICTIONARY_CONTEXT_HELP", resourceCulture);
+            }
+        }
     }
 }
