@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
 using jcOCLHashcatGUI.WPF.Enums;
-using jcOCLHashcatGUI.WPF.Helpers;
-using jcOCLHashcatGUI.WPF.Objects;
 using jcOCLHashcatGUI.WPF.ViewModels;
 
 using Microsoft.Win32;
@@ -24,7 +21,7 @@ namespace jcOCLHashcatGUI.WPF.Controls {
 
             viewModel.LoadData();
         }
-
+        
         private void btnBrowseForHashCat_OnClick(object sender, RoutedEventArgs e) {
             var fileDialog = new OpenFileDialog {
                 DefaultExt = ".exe",

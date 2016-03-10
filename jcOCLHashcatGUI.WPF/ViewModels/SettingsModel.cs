@@ -40,7 +40,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             SelectedLanguage = SelectableLanguages.FirstOrDefault(a => a.Key == Config.GetConfigValue<string>(ConfigOptions.LANGUAGE)) ?? SelectableLanguages.FirstOrDefault();
 
             SelectedHashcatLocation = Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION);
-
+            
             Dictionaries = new ObservableCollection<DictionaryItem>(Config.GetConfigValue<DictionaryContainerItem>(ConfigOptions.DICTIONARIES).Dictionaries);
 
             return new OperationResult(ErrorTypes.NONE);
@@ -61,7 +61,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             Config.UpdateConfigValue(ConfigOptions.LANGUAGE, SelectedLanguage.Key);
             Config.UpdateConfigValue(ConfigOptions.OCLHASHCAT_LOCATION, SelectedHashcatLocation);
-            Config.UpdateConfigValue(ConfigOptions.DICTIONARIES, new DictionaryContainerItem { Dictionaries = new List<DictionaryItem>(Dictionaries)});
+            Config.UpdateConfigValue(ConfigOptions.DICTIONARIES, new DictionaryContainerItem { Dictionaries = new List<DictionaryItem>(Dictionaries.Where(a => a.IsChecked))});
 
             return result;
         }

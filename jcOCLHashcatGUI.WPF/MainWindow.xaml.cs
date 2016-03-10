@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 
+using jcOCLHashcatGUI.WPF.Controls;
 using jcOCLHashcatGUI.WPF.Enums;
 using jcOCLHashcatGUI.WPF.ViewModels;
 
@@ -27,6 +28,10 @@ namespace jcOCLHashcatGUI.WPF {
 
         private async void ButtonBase_OnClick(object sender, RoutedEventArgs e) { var result = await viewModel.RunHashcat(); }
 
-        private void btnSettings_OnClick(object sender, RoutedEventArgs e) { fSettings.IsOpen = true; }        
+        private void btnSettings_OnClick(object sender, RoutedEventArgs e) {
+            settingsControl = new SettingsControl();
+
+            fSettings.IsOpen = true;
+        }        
     }
 }

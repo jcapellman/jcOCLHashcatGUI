@@ -69,7 +69,7 @@
                 <Button Grid.Column="1" Content="{x:Static properties:Resources.MAINWINDOW_SETTINGS_DICTIONARIES_BUTTON}" HorizontalAlignment="Right" Click="btnBrowseForDictionaries" />
             </Grid>
          
-            <ListBox Grid.Row="2" ItemsSource="{Binding Dictionaries, Mode=TwoWay}">
+            <ListBox Grid.Row="2" ItemsSource="{Binding Dictionaries, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <CheckBox Content="{Binding FilePath}" IsChecked="{Binding IsChecked, Mode=TwoWay}" />
