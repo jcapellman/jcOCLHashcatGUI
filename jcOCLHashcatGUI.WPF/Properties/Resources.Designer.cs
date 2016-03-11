@@ -187,6 +187,15 @@ namespace jcOCLHashcatGUI.WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Selected Dictionary.
+        /// </summary>
+        public static string MAINWINDOW_TEXTBLOCK_SELECTED_DICTIONARY_LABEL {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_TEXTBLOCK_SELECTED_DICTIONARY_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to settings.
         /// </summary>
         public static string MAINWINDOW_TITLEBAR_SETTINGS {

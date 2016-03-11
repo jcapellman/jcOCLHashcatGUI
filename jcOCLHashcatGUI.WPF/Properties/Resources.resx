@@ -159,6 +159,9 @@
   <data name="MAINWINDOW_TEXTBLOCK_OUTPUT_LABEL" xml:space="preserve">
     <value>Hashcat Output</value>
   </data>
+  <data name="MAINWINDOW_TEXTBLOCK_SELECTED_DICTIONARY_LABEL" xml:space="preserve">
+    <value>Selected Dictionary</value>
+  </data>
   <data name="MAINWINDOW_TITLEBAR_SETTINGS" xml:space="preserve">
     <value>settings</value>
   </data>

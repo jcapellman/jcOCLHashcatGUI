@@ -31,7 +31,20 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             set { _buttonRunHashcat = value; OnPropertyChanged(); }
         }
 
-        
+        private string _selectedDictionary;
+
+        public string SelectedDictionary {
+            get { return _selectedDictionary; }
+            set { _selectedDictionary = value; OnPropertyChanged(); }
+        }
+
+        private List<string> _dictionaries;
+
+        public List<string> Dictionaries {
+            get { return _dictionaries; }
+            set { _dictionaries = value; OnPropertyChanged(); }
+        }
+
         private string _hashcatOutput;
 
         public string HashcatOutput { get { return _hashcatOutput; } set { _hashcatOutput = value; OnPropertyChanged(); } }
@@ -47,6 +60,15 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
             if (!File.Exists(Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION))) {
                 return new OperationResult(ErrorTypes.OCLHASHCAT_NOT_FOUND_AT_PATH);
+            }
+
+            Dictionaries =
+                Config.GetConfigValue<DictionaryContainerItem>(ConfigOptions.DICTIONARIES)
+                    .Dictionaries.Select(a => a.FilePath)
+                    .ToList();
+
+            if (Dictionaries.Any()) {
+                SelectedDictionary = Dictionaries.FirstOrDefault();
             }
 
             ButtonRunHashcat = true;

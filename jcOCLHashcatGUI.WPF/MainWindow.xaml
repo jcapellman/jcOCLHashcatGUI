@@ -42,11 +42,25 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Margin="0,0,10,0" Text="{x:Static properties:Resources.MAINWINDOW_TEXTBLOCK_HASH_SOURCE_TYPE_LABEL}" />
-            <ComboBox Grid.Column="1" SelectedItem="{Binding SelectedHashType, Mode=TwoWay}" ItemsSource="{Binding SelectableHashTypes, Mode=OneTime}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" Text="{x:Static properties:Resources.MAINWINDOW_TEXTBLOCK_HASH_SOURCE_TYPE_LABEL}" />
+            <ComboBox Grid.Row="0" Grid.Column="1" SelectedItem="{Binding SelectedHashType, Mode=TwoWay}" ItemsSource="{Binding SelectableHashTypes, Mode=OneTime}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Key}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+           
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,10,0" Text="{x:Static properties:Resources.MAINWINDOW_TEXTBLOCK_SELECTED_DICTIONARY_LABEL}" />
+            <ComboBox Grid.Row="1" Grid.Column="1" SelectedItem="{Binding SelectedDictionary, Mode=TwoWay}" ItemsSource="{Binding Dictionaries, Mode=OneTime}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
