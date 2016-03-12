@@ -24,6 +24,13 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             set { _selectedHashType = value; OnPropertyChanged(); }
         }
 
+        private string _selectedHashfile;
+
+        public string SelectedHashFile {
+            get { return _selectedHashfile; }
+            set { _selectedHashfile = value; OnPropertyChanged(); }
+        }
+
         private bool _buttonRunHashcat;
 
         public bool ButtonRunHashcat {
@@ -82,7 +89,8 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             var procInfo = new ProcessStartInfo(Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION)) {
                 RedirectStandardOutput = true,
                 CreateNoWindow = true,
-                UseShellExecute = false
+                UseShellExecute = false,
+                Arguments = $"-m {SelectedHashType.Value} {SelectedHashFile} {SelectedDictionary}"
             };
 
             var proc = new Process {
