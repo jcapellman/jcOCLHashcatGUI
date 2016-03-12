@@ -5,6 +5,7 @@ using jcOCLHashcatGUI.WPF.Enums;
 using jcOCLHashcatGUI.WPF.ViewModels;
 
 using MahApps.Metro.Controls;
+using Microsoft.Win32;
 
 namespace jcOCLHashcatGUI.WPF {
     public partial class MainWindow : MetroWindow {
@@ -32,6 +33,21 @@ namespace jcOCLHashcatGUI.WPF {
             settingsControl = new SettingsControl();
 
             fSettings.IsOpen = true;
-        }        
+        }
+
+        private void btnBrowseForHashfile_OnClick(object sender, RoutedEventArgs e) {
+            var fileDialog = new OpenFileDialog {
+                DefaultExt = "*.*",
+                Multiselect = false
+            };
+
+            var result = fileDialog.ShowDialog();
+
+            if (result == false) {
+                return;
+            }
+
+            viewModel.SelectedHashFile = fileDialog.FileName;
+        }
     }
 }

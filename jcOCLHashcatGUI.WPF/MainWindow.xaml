@@ -33,7 +33,7 @@
 
             <TextBlock Grid.Column="0" Margin="0,0,10,0" Text="{x:Static properties:Resources.MAINWINDOW_TEXTBLOCK_HASH_SOURCE_FILE_LABEL}" />
             <TextBox Grid.Column="1" Text="{Binding SelectedHashFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <Button Grid.Column="2" Margin="10,0,0,0" Content="{x:Static properties:Resources.MAINWINDOW_BUTTON_BROWSE_FOR_HASH_FILE}" />
+            <Button Grid.Column="2" Margin="10,0,0,0" Content="{x:Static properties:Resources.MAINWINDOW_BUTTON_BROWSE_FOR_HASH_FILE}" Click="btnBrowseForHashfile_OnClick" />
         </Grid>
 
         <Grid Grid.Row="1" Margin="10,10,10,10">
