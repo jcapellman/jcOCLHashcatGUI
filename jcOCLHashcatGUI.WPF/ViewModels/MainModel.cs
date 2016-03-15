@@ -35,21 +35,32 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
         public string SelectedHashFile {
             get { return _selectedHashfile; }
-            set { _selectedHashfile = value; OnPropertyChanged(); }
+            set {
+                _selectedHashfile = value;
+                OnPropertyChanged();
+                CheckHashcatPrerequisite();
+            }
+        }
+
+        private void CheckHashcatPrerequisite() {
+            ButtonRunHashcat = !string.IsNullOrEmpty(SelectedHashFile) && !string.IsNullOrEmpty(SelectedDictionary);
         }
 
         private bool _buttonRunHashcat;
 
         public bool ButtonRunHashcat {
             get {  return _buttonRunHashcat;}
-            set { _buttonRunHashcat = value; OnPropertyChanged(); }
+            set {
+                _buttonRunHashcat = value;
+                OnPropertyChanged();
+            }
         }
 
         private string _selectedDictionary;
 
         public string SelectedDictionary {
             get { return _selectedDictionary; }
-            set { _selectedDictionary = value; OnPropertyChanged(); }
+            set { _selectedDictionary = value; OnPropertyChanged(); CheckHashcatPrerequisite(); }
         }
 
         private List<string> _dictionaries;
@@ -68,6 +79,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
         public OperationResult LoadData() {
             ButtonRunHashcat = false;
 
+            SelectedHashFile = string.Empty;
             SelectableHashTypes = EnumToKeyValuePair.ToKeyValuePair<HashTypes>();
 
             if (SelectableHashTypes != null) {
@@ -86,8 +98,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             if (Dictionaries.Any()) {
                 SelectedDictionary = Dictionaries.FirstOrDefault();
             }
-
-            ButtonRunHashcat = true;
+            
             ButtonStopHashcat = false;
 
             return new OperationResult(ErrorTypes.NONE);
