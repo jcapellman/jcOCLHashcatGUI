@@ -61,6 +61,24 @@ namespace jcOCLHashcatGUI.WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        public static string ABOUT_TEXTBLOCK_ABOUT {
+            get {
+                return ResourceManager.GetString("ABOUT_TEXTBLOCK_ABOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to jcOCLhashcat was created as an attractive, easy to user and robust frontend for oclHashcat..
+        /// </summary>
+        public static string ABOUT_TEXTBLOCK_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("ABOUT_TEXTBLOCK_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The path to oclHashcat was not found, please set the correct path..
         /// </summary>
         public static string ERROR_OCLHASHCAT_NOT_FOUND {
@@ -192,6 +210,15 @@ namespace jcOCLHashcatGUI.WPF.Properties {
         public static string MAINWINDOW_TEXTBLOCK_SELECTED_DICTIONARY_LABEL {
             get {
                 return ResourceManager.GetString("MAINWINDOW_TEXTBLOCK_SELECTED_DICTIONARY_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        public static string MAINWINDOW_TITLEBAR_ABOUT {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_TITLEBAR_ABOUT", resourceCulture);
             }
         }
         

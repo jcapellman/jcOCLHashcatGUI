@@ -13,6 +13,7 @@
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Content="{x:Static properties:Resources.MAINWINDOW_TITLEBAR_SETTINGS}" Click="btnSettings_OnClick" />
+            <Button Content="{x:Static properties:Resources.MAINWINDOW_TITLEBAR_ABOUT}" Click="btnAbout_OnClick" />
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
 
@@ -90,6 +91,10 @@
         <Controls:FlyoutsControl>
             <Controls:Flyout x:Name="fSettings" Header="{x:Static properties:Resources.MAINWINDOW_TITLEBAR_SETTINGS}" VerticalAlignment="Top" Theme="Accent" Position="Right" Width="320">
                 <controls:SettingsControl x:Name="settingsControl" />
+            </Controls:Flyout>
+            
+            <Controls:Flyout x:Name="fAbout" Header="{x:Static properties:Resources.MAINWINDOW_TITLEBAR_ABOUT}" VerticalAlignment="Top" Theme="Accent" Position="Right" Width="320">
+                <controls:About />
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>

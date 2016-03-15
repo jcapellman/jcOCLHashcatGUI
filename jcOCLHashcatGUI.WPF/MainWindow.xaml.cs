@@ -49,5 +49,7 @@ namespace jcOCLHashcatGUI.WPF {
 
             viewModel.SelectedHashFile = fileDialog.FileName;
         }
+
+        private void btnAbout_OnClick(object sender, RoutedEventArgs e) { fAbout.IsOpen = true; }
     }
 }
