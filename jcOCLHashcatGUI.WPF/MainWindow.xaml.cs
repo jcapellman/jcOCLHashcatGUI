@@ -51,5 +51,9 @@ namespace jcOCLHashcatGUI.WPF {
         }
 
         private void btnAbout_OnClick(object sender, RoutedEventArgs e) { fAbout.IsOpen = true; }
+
+        private void btnStopHashCat_OnClick(object sender, RoutedEventArgs e) {
+            viewModel.StopHashcat();
+        }
     }
 }

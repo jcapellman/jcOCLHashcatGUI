@@ -81,9 +81,12 @@
         <Grid Grid.Row="3" Margin="10,10,10,10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" IsEnabled="{Binding ButtonRunHashcat, Mode=TwoWay}" Click="ButtonBase_OnClick" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Content="{x:Static properties:Resources.MAINWINDOW_BUTTON_RUN_HASHCAT}" />
+            <Button Grid.Row="0" Margin="10,10,10,10" IsEnabled="{Binding ButtonRunHashcat, Mode=TwoWay}" Click="ButtonBase_OnClick" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Content="{x:Static properties:Resources.MAINWINDOW_BUTTON_RUN_HASHCAT}" />
+        
+            <Button Grid.Row="1" Margin="10,10,10,10"  IsEnabled="{Binding ButtonStopHashcat, Mode=TwoWay}" Content="{x:Static properties:Resources.MAINWINDOW_BUTTON_STOP_HASHCAT}" Click="btnStopHashCat_OnClick" HorizontalContentAlignment="Center" />
         </Grid>
     </Grid>
 

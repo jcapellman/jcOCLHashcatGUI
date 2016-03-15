@@ -115,6 +115,15 @@ namespace jcOCLHashcatGUI.WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stop Hashcat.
+        /// </summary>
+        public static string MAINWINDOW_BUTTON_STOP_HASHCAT {
+            get {
+                return ResourceManager.GetString("MAINWINDOW_BUTTON_STOP_HASHCAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to save.
         /// </summary>
         public static string MAINWINDOW_SETTINGS_BUTTON_SAVE {

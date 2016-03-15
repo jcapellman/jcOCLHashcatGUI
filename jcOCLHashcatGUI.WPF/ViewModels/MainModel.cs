@@ -10,6 +10,13 @@ using jcOCLHashcatGUI.WPF.Objects;
 
 namespace jcOCLHashcatGUI.WPF.ViewModels {
     public class MainModel : BaseModel {
+        private bool _buttonStopHashcat;
+
+        public bool ButtonStopHashcat {
+            get { return _buttonStopHashcat; }
+            set { _buttonStopHashcat = value; OnPropertyChanged(); }
+        }
+
         private List<KeyValuePair> _hashTypes;
 
         public List<KeyValuePair> SelectableHashTypes {
@@ -56,6 +63,8 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
 
         public string HashcatOutput { get { return _hashcatOutput; } set { _hashcatOutput = value; OnPropertyChanged(); } }
 
+        private Process _hashcatProcess;
+
         public OperationResult LoadData() {
             ButtonRunHashcat = false;
 
@@ -79,12 +88,18 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
             }
 
             ButtonRunHashcat = true;
-            
+            ButtonStopHashcat = false;
+
             return new OperationResult(ErrorTypes.NONE);
+        }
+
+        public void StopHashcat() {
+            _hashcatProcess.Close();
         }
         
         public async Task<OperationResult> RunHashcat() {
             ButtonRunHashcat = false;
+            ButtonStopHashcat = true;
 
             var procInfo = new ProcessStartInfo(Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION)) {
                 RedirectStandardOutput = true,
@@ -93,15 +108,16 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
                 Arguments = $"-m {SelectedHashType.Value} {SelectedHashFile} {SelectedDictionary}"
             };
 
-            var proc = new Process {
+            _hashcatProcess = new Process {
                 StartInfo = procInfo
             };
 
-            proc.Start();
-
-            HashcatOutput = await proc.StandardOutput.ReadToEndAsync();
+            _hashcatProcess.Start();
+           
+            HashcatOutput = await _hashcatProcess.StandardOutput.ReadToEndAsync();
 
             ButtonRunHashcat = true;
+            ButtonStopHashcat = false;
 
             return new OperationResult(ErrorTypes.NONE);
         }

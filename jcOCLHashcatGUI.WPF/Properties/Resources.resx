@@ -135,6 +135,9 @@
   <data name="MAINWINDOW_BUTTON_RUN_HASHCAT" xml:space="preserve">
     <value>run hashcat</value>
   </data>
+  <data name="MAINWINDOW_BUTTON_STOP_HASHCAT" xml:space="preserve">
+    <value>Stop Hashcat</value>
+  </data>
   <data name="MAINWINDOW_SETTINGS_BUTTON_SAVE" xml:space="preserve">
     <value>save</value>
   </data>
