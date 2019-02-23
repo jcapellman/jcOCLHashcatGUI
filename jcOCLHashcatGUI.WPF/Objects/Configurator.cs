@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-
-using jcOCLHashcatGUI.WPF.Enums;
-
+using jcOCLHashcatGUI.Enums;
 using Newtonsoft.Json;
 
-namespace jcOCLHashcatGUI.WPF.Objects {
+namespace jcOCLHashcatGUI.Objects {
     public class Configurator {
         private readonly Dictionary<ConfigOptions, object> _options;
 

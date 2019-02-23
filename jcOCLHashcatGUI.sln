@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28606.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jcOCLHashcatGUI.WPF", "jcOCLHashcatGUI.WPF\jcOCLHashcatGUI.WPF.csproj", "{9A1BA42A-89F6-4AE3-BA5E-8CFFDCA05A78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jcOCLHashcatGUI", "jcOCLHashcatGUI.WPF\jcOCLHashcatGUI.csproj", "{9A1BA42A-89F6-4AE3-BA5E-8CFFDCA05A78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31158FB2-7BA9-4E24-A945-1AD251EF3BF2}
 	EndGlobalSection
 EndGlobal

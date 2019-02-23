@@ -3,42 +3,45 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 
-using jcOCLHashcatGUI.WPF.Enums;
-using jcOCLHashcatGUI.WPF.Helpers;
-using jcOCLHashcatGUI.WPF.Objects;
+using jcOCLHashcatGUI.Enums;
+using jcOCLHashcatGUI.Helpers;
+using jcOCLHashcatGUI.Objects;
 
-namespace jcOCLHashcatGUI.WPF.ViewModels {
+namespace jcOCLHashcatGUI.ViewModels {
     public class SettingsModel : BaseModel {
         private string _selectedHashcatLocation;
 
         public string SelectedHashcatLocation { get { return _selectedHashcatLocation; } set { _selectedHashcatLocation = value; OnPropertyChanged(); } }
 
-        private KeyValuePair _selectedLanguage;
+        private KeyValuePair<string, SupportedLanguages> _selectedLanguage;
 
-        public KeyValuePair SelectedLanguage {
-            get { return _selectedLanguage; }
+        public KeyValuePair<string, SupportedLanguages> SelectedLanguage {
+            get => _selectedLanguage;
             set { _selectedLanguage = value; OnPropertyChanged(); }
         }
 
-        private List<KeyValuePair> _selectableLanguages;
+        private List<KeyValuePair<string, SupportedLanguages>> _selectableLanguages;
 
-        public List<KeyValuePair> SelectableLanguages {
-            get { return _selectableLanguages; }
+        public List<KeyValuePair<string, SupportedLanguages>> SelectableLanguages {
+            get => _selectableLanguages;
             set { _selectableLanguages = value; OnPropertyChanged(); }
         }
 
         private ObservableCollection<DictionaryItem> _dictionaries;
 
         public ObservableCollection<DictionaryItem> Dictionaries {
-            get {  return _dictionaries; }
+            get => _dictionaries;
             set { _dictionaries = value; OnPropertyChanged(); }
         }  
 
         public OperationResult LoadData() {
             SelectableLanguages = EnumToKeyValuePair.ToKeyValuePair<SupportedLanguages>(replaceUnderscoreCharacter: "-");
 
-            SelectedLanguage = SelectableLanguages.FirstOrDefault(a => a.Key == Config.GetConfigValue<string>(ConfigOptions.LANGUAGE)) ?? SelectableLanguages.FirstOrDefault();
+            var selectedLanguage =
+                SelectableLanguages.FirstOrDefault(a => a.Key == Config.GetConfigValue<string>(ConfigOptions.LANGUAGE));
 
+            SelectedLanguage = !string.IsNullOrEmpty(selectedLanguage.Key) ? selectedLanguage : SelectableLanguages.FirstOrDefault();
+            
             SelectedHashcatLocation = Config.GetConfigValue<string>(ConfigOptions.OCLHASHCAT_LOCATION);
             
             Dictionaries = new ObservableCollection<DictionaryItem>(Config.GetConfigValue<DictionaryContainerItem>(ConfigOptions.DICTIONARIES).Dictionaries);
@@ -81,11 +84,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
                 });
             }
 
-            if (duplicatesAttempted) {
-                return new OperationResult(ErrorTypes.DUPLICATE_DICTIONARIES);
-            }
-
-            return new OperationResult(ErrorTypes.NONE);
+            return duplicatesAttempted ? new OperationResult(ErrorTypes.DUPLICATE_DICTIONARIES) : new OperationResult(ErrorTypes.NONE);
         }
     }
 }

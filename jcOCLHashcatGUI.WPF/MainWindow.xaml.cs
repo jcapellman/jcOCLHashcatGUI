@@ -1,13 +1,14 @@
 ﻿using System.Windows;
 
-using jcOCLHashcatGUI.WPF.Controls;
-using jcOCLHashcatGUI.WPF.Enums;
-using jcOCLHashcatGUI.WPF.ViewModels;
+using jcOCLHashcatGUI.Controls;
+using jcOCLHashcatGUI.Enums;
+using jcOCLHashcatGUI.ViewModels;
 
 using MahApps.Metro.Controls;
+
 using Microsoft.Win32;
 
-namespace jcOCLHashcatGUI.WPF {
+namespace jcOCLHashcatGUI {
     public partial class MainWindow : MetroWindow {
         private MainModel viewModel => (MainModel) DataContext;
 

@@ -1,4 +1,4 @@
-﻿namespace jcOCLHashcatGUI.WPF.Enums {
+﻿namespace jcOCLHashcatGUI.Enums {
     public enum HashTypes {
         MD4 = 900,
         MD5 = 0,

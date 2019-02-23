@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace jcOCLHashcatGUI.WPF.Objects {
+namespace jcOCLHashcatGUI.Objects {
     [DataContract]
     public class DictionaryItem {
         [DataMember]

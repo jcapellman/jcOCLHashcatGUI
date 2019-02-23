@@ -1,7 +1,7 @@
-﻿using jcOCLHashcatGUI.WPF.Enums;
-using jcOCLHashcatGUI.WPF.Properties;
+﻿using jcOCLHashcatGUI.Enums;
+using jcOCLHashcatGUI.Properties;
 
-namespace jcOCLHashcatGUI.WPF.Objects {
+namespace jcOCLHashcatGUI.Objects {
     public class OperationResult {
         public ErrorTypes ErrorType;
 

@@ -4,37 +4,37 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-using jcOCLHashcatGUI.WPF.Enums;
-using jcOCLHashcatGUI.WPF.Helpers;
-using jcOCLHashcatGUI.WPF.Objects;
+using jcOCLHashcatGUI.Enums;
+using jcOCLHashcatGUI.Helpers;
+using jcOCLHashcatGUI.Objects;
 
-namespace jcOCLHashcatGUI.WPF.ViewModels {
+namespace jcOCLHashcatGUI.ViewModels {
     public class MainModel : BaseModel {
         private bool _buttonStopHashcat;
 
         public bool ButtonStopHashcat {
-            get { return _buttonStopHashcat; }
+            get => _buttonStopHashcat;
             set { _buttonStopHashcat = value; OnPropertyChanged(); }
         }
 
-        private List<KeyValuePair> _hashTypes;
+        private List<KeyValuePair<string, HashTypes>> _hashTypes;
 
-        public List<KeyValuePair> SelectableHashTypes {
-            get { return _hashTypes; }
+        public List<KeyValuePair<string, HashTypes>> SelectableHashTypes {
+            get => _hashTypes;
             set { _hashTypes = value; OnPropertyChanged(); }
         }
         
-        private KeyValuePair _selectedHashType;
+        private KeyValuePair<string, HashTypes> _selectedHashType;
 
-        public KeyValuePair SelectedHashType {
-            get { return _selectedHashType; }
+        public KeyValuePair<string, HashTypes> SelectedHashType {
+            get => _selectedHashType;
             set { _selectedHashType = value; OnPropertyChanged(); }
         }
 
         private string _selectedHashfile;
 
         public string SelectedHashFile {
-            get { return _selectedHashfile; }
+            get => _selectedHashfile;
             set {
                 _selectedHashfile = value;
                 OnPropertyChanged();
@@ -49,7 +49,7 @@ namespace jcOCLHashcatGUI.WPF.ViewModels {
         private bool _buttonRunHashcat;
 
         public bool ButtonRunHashcat {
-            get {  return _buttonRunHashcat;}
+            get => _buttonRunHashcat;
             set {
                 _buttonRunHashcat = value;
                 OnPropertyChanged();

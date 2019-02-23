@@ -2,12 +2,12 @@
 using System.Windows;
 using System.Windows.Controls;
 
-using jcOCLHashcatGUI.WPF.Enums;
-using jcOCLHashcatGUI.WPF.ViewModels;
+using jcOCLHashcatGUI.Enums;
+using jcOCLHashcatGUI.ViewModels;
 
 using Microsoft.Win32;
 
-namespace jcOCLHashcatGUI.WPF.Controls {
+namespace jcOCLHashcatGUI.Controls {
 
     public partial class SettingsControl : UserControl {
         private SettingsModel viewModel => (SettingsModel) DataContext;

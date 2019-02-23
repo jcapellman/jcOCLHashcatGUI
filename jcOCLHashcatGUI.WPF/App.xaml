@@ -1,7 +1,7 @@
-﻿<Application x:Class="jcOCLHashcatGUI.WPF.App"
+﻿<Application x:Class="jcOCLHashcatGUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:jcOCLHashcatGUI.WPF"
+             xmlns:local="clr-namespace:jcOCLHashcatGUI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

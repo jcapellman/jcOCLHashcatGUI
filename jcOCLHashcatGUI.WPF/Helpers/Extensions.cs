@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace jcOCLHashcatGUI.WPF.Helpers {
+namespace jcOCLHashcatGUI.Helpers {
     public static class Extensions {
         public static void AddRange<T>(this ObservableCollection<T> collection, IEnumerable<T> list, bool insertUniqueOnly = false) {
             foreach (var item in list) {

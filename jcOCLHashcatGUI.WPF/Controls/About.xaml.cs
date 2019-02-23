@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
-namespace jcOCLHashcatGUI.WPF.Controls {
+namespace jcOCLHashcatGUI.Controls {
     public partial class About : UserControl {
         public About() {
             InitializeComponent();

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace jcOCLHashcatGUI.WPF.Objects {
+namespace jcOCLHashcatGUI.Objects {
     [DataContract]
     public class DictionaryContainerItem {
         [DataMember]
